@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+<!--    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+<header class="header text-center text-muted my-5">
+    <h1>cafe LILY</h1>
+</header>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light   d-flex justify-content-center position-sticky rounded-pill shadow overflow-hidden overflow-x-scroll ">
+    <div class="services-tabs mt-3 d-flex ">
+        <ul class="nav nav-pills d-flex align-items-center px-0 gap-2 mb-3 flex-row flex-shrink-0 mx-3 " id="services-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="#">
+                    <button aria-selected="true" class="nav-link active" data-bs-target="#hot-coffee"
+                            data-bs-toggle="pill" id="hot-coffee-tab" role="tab" type="button">hot coffee
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="#">
+                    <button aria-selected="false" class="nav-link" data-bs-target="#iced-coffee"
+                            data-bs-toggle="pill" id="iced-coffee-tab" role="tab" tabindex="-1"
+                            type="button">iced coffee
+                    </button>
+                </a>
+
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="#">
+                    <button aria-selected="false" class="nav-link" data-bs-target="#mocktail"
+                            data-bs-toggle="pill" id="mocktail-tab" role="tab" tabindex="-1" type="button">
+                        mocktail
+                    </button>
+                </a>
+
+            </li>
+        </ul>
+
+
+    </div>
+
+</nav>
+
+
+
+
+
+<div class="tab-content  align-items-center justify-content-center" id="services-tabs-content">
+    <div aria-labelledby="services-development-tab" class="tab-pane fade show active" id="hot-coffee" role="tabpanel"></div>
+    <div aria-labelledby="services-marketing-tab" class="tab-pane fade" id="iced-coffee" role="tabpanel"></div>
+    <div aria-labelledby="services-support-tab" class="tab-pane fade" id="mocktail" role="tabpanel"></div>
+</div>
+
+
+
+<div class="modal1" id="modal1">
+    <span class="close" onclick="closeModal1()">×</span>
+    <div class="modal-content1">
+        <img id="modalImage" src="" alt="..." />
+        <div class="details">
+            <h2 id="modalTitle">...</h2>
+            <h4 id="modalPrice">...</h4>
+            <p id="modalDesc">...</p>
+        </div>
+    </div>
+</div>
+<!--<script src="data.js" ></script>-->
+
+<script>
+    const data = {
+        'hot-coffee': [
+            ['espresso','79,000','قهوه اسپرسو با بلند 80/20','images/espresso.png'],
+            ['mamad','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img']
+        ],
+
+        'iced-coffee': [
+            ['espresso2','79,0002','قهوه اسپرسو با بلند 280/20','images/espresso.png'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img'],
+            ['name','price','desc','img']
+        ],
+        'mocktail': [
+            ['espresso3', '79,0002', 'قهوه اسپرسو با بلند 280/20', 'images/espresso.png'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img'],
+            ['name', 'price', 'desc', 'img']
+        ]
+    }
+
+
+
+    // const data = {
+    //     'hot-coffee': [['espresso', '79,000', 'قهوه اسپرسو با بلند 80/20', 'images/espresso.png'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img']],
+    //
+    //     'iced-coffee': [['espresso2', '79,0002', 'قهوه اسپرسو با بلند 280/20', 'images/espresso.png'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img']],
+    //     'mocktail': [['espresso3', '79,0002', 'قهوه اسپرسو با بلند 280/20', 'images/espresso.png'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img'], ['name', 'price', 'desc', 'img']]
+    // }
+    const HotCoffee = document.getElementById("hot-coffee");
+    const ValHotCoffee = HotCoffee.getAttribute('id');
+    const IcedCoffee = document.getElementById("iced-coffee");
+    const ValIcedCoffee = IcedCoffee.getAttribute('id');
+    const Mocktail = document.getElementById("mocktail");
+    const ValMocktail = Mocktail.getAttribute('id');
+
+
+    for (const [section, items] of Object.entries(data)) {
+        let html = `<div class="cards">`
+
+
+        if (section === ValHotCoffee) {
+            for (const [title, price, desc, img] of items) {
+                html += `<div class="tab-service-card card" onclick="openModal('${title}', '${price}', '${desc}', '${img}')">
+                    <img src="${img}" alt="${title}" />
+                    <div class="info">
+                        <h3>${title}</h3>
+                        <div class="price">${price}</div>
+                    </div>
+                </div>
+        `
+            }
+            html += `</div>`
+            HotCoffee.innerHTML = html;
+        }
+
+        if (section === ValMocktail) {
+            for (const [title, price, desc, img] of items) {
+                html += `<div class="tab-service-card card" onclick="openModal('${title}', '${price}', '${desc}', '${img}')">
+                    <img src="${img}" alt="${title}" />
+                    <div class="info">
+                        <h3>${title}</h3>
+                        <div class="price">${price}</div>
+                    </div>
+                </div>
+        `
+            }
+            Mocktail.innerHTML = html;
+        }
+        if (section === ValIcedCoffee) {
+            for (const [title, price, desc, img] of items) {
+                html += `<div class="tab-service-card card" onclick="openModal('${title}', '${price}', '${desc}', '${img}')">
+                    <img src="${img}" alt="${title}" />
+                    <div class="info">
+                        <h3>${title}</h3>
+                        <div class="price">${price}</div>
+                    </div>
+                </div>
+        `
+            }
+            IcedCoffee.innerHTML = html;
+        }
+
+
+    }
+
+
+
+
+    function openModal(title, price, desc, imgSrc) {
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalPrice').textContent = price;
+        document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalImage').src = imgSrc;
+        document.getElementById('modal1').style.display = 'flex';
+    }
+
+    function closeModal1() {
+        document.getElementById('modal1').style.display = 'none';
+    }
+
+
+    document.getElementById('modal1').addEventListener('click', function (event) {
+        if (!event.target.closest('.modal-content1')) {
+            console.log("hello")
+
+
+            closeModal1();
+        }
+    });
+</script>
+<script src="app.js"></script>
+<!--<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
